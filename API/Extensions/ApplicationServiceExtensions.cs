@@ -16,6 +16,7 @@ public static class ApplicationServiceExtensions
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<LogUserActivity>();
+        services.AddScoped<ILikesRepository, LikesRepository>();
         services.AddDbContext<DataContext>(opt =>
         {
             opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
